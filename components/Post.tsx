@@ -1,7 +1,10 @@
 import styled from "styled-components";
+import { isPropertySignature } from "typescript";
 
-const Article = styled.article``;
+const Article = styled.article`
+  color: black;
+`;
 
-export const Post = (postData: any) => {
-  return <Article></Article>;
+export const Post = (props) => {
+  return <Article>{props.data.body}</Article>;
 };
