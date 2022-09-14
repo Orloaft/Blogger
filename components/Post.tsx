@@ -1,10 +1,17 @@
+import Link from "next/link";
 import styled from "styled-components";
 import { isPropertySignature } from "typescript";
 
 const Article = styled.article`
-  color: black;
+  display: flex;
+  height: 5rem;
+  border: 1px solid gray;
 `;
 
 export const Post = (props) => {
-  return <Article>{props.data.body}</Article>;
+  return (
+    <Article>
+      <Link href={`posts/${props.data.id}`}>{props.data.body}</Link>
+    </Article>
+  );
 };
