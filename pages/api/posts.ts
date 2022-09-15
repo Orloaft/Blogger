@@ -8,6 +8,6 @@ export default function handler(req, res) {
     .from("posts")
 
     .then((posts) => {
-      res.status(200).json(posts);
+      res.status(200).json(posts.reverse());
     });
 }
