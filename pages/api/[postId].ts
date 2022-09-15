@@ -1,4 +1,13 @@
+import knex from "knex";
+
 export default function handler(req, res) {
-  console.log(req);
-  res.status(200).json();
+  const query = req.query;
+  knex("../posts.sqlite3")
+    .select()
+    .from("posts")
+    .where({ id: query.postId })
+    .then((post) => {
+      res.status(200).json(post);
+    })
+    .catch((err) => console.log(err));
 }

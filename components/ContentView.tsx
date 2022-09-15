@@ -1,5 +1,6 @@
 import styled from "styled-components";
 const ContentWrap = styled.section`
+  word-break: break-all;
   margin-top: 3.5rem;
   display: flex;
   flex-direction: column;
@@ -8,7 +9,14 @@ const ContentWrap = styled.section`
     padding-left: 3.5rem;
   }
 `;
-const ContentView = (props) => {
-  return <ContentWrap>boomshackalacka</ContentWrap>;
+const ContentView = ({ data }) => {
+  return (
+    data && (
+      <ContentWrap>
+        <h2>{data.title}</h2>
+        <p>{data.body}</p>
+      </ContentWrap>
+    )
+  );
 };
 export default ContentView;

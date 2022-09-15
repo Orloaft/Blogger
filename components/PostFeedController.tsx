@@ -9,7 +9,6 @@ export const PostFeedController = () => {
     axios
       .get(apiCall)
       .then((result) => {
-        console.log(result.data);
         setFeed(result.data);
       })
       .catch((err) => console.log(err));

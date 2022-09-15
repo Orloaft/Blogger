@@ -9,9 +9,10 @@ const Article = styled.article`
 `;
 
 export const Post = (props) => {
+  let post = JSON.parse(props.data.body).form;
   return (
     <Article>
-      <Link href={`posts/${props.data.id}`}>{props.data.body}</Link>
+      <Link href={`posts/${props.data.id}`}>{post.title}</Link>
     </Article>
   );
 };
