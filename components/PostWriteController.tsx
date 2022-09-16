@@ -6,13 +6,14 @@ export const PostWriteController = () => {
   const [form, setForm] = useState({ title: "", body: "" });
   const handleSubmit = (e) => {
     e.preventDefault();
+    let token = sessionStorage.getItem("token");
     axios
-      .post("http://localhost:3000/api/makePost", { form })
+      .post("http://localhost:3000/api/makePost", { form, token })
       .then(() => {
         setForm({ title: "", body: "" });
       })
       .catch((err) => console.log(err));
-  }; // make sure to match the name of the input with the property name you want changed
+  }; // make sure to match the name of the input with the property name you want change
   const handleChange = (e, name) => {
     let newForm = { ...form };
     newForm[name] = e.target.value;

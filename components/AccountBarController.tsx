@@ -4,6 +4,10 @@ import { SignInBar } from "./SignInBar";
 import axios from "axios";
 export const AccountBarController = () => {
   const [credentials, setCredentials] = useState(null);
+  const signOut = () => {
+    sessionStorage.removeItem("token");
+    setCredentials(null);
+  };
   useEffect(() => {
     let token = sessionStorage.getItem("token");
     if (token) {
@@ -16,7 +20,7 @@ export const AccountBarController = () => {
     }
   }, []);
   if (credentials) {
-    return <AccountBarView credentials={credentials} />;
+    return <AccountBarView signOut={signOut} credentials={credentials} />;
   } else {
     return <SignInBar />;
   }

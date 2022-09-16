@@ -14,6 +14,7 @@ const ContentView = ({ data }) => {
     data && (
       <ContentWrap>
         <h2>{data.title}</h2>
+        <h3>by:{data.author}</h3>
         <p>{data.body}</p>
       </ContentWrap>
     )
