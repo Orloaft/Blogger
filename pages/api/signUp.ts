@@ -1,7 +1,7 @@
 import knex from "knex";
 
 export default function handler(req, res) {
-  knex("../db.sqlite3")
+  knex("./db.sqlite3")
     .select()
     .from("users")
     .where({ email: req.body.email })
@@ -9,13 +9,13 @@ export default function handler(req, res) {
       if (email.length !== 0) {
         res.json({ message: "email taken" });
       } else {
-        knex("../db.sqlite3")
+        knex("./db.sqlite3")
           .select()
           .from("users")
           .where({ name: req.body.name })
           .then((user) => {
             if (user.length === 0) {
-              knex("../db.sqlite3")
+              knex("./db.sqlite3")
                 .insert({
                   name: req.body.name,
                   password: req.body.password,
