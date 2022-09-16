@@ -13,6 +13,7 @@ const Form = styled.form`
 export const PostWriteView = (props) => {
   return (
     <Form onSubmit={(e) => props.handleSubmit(e)}>
+      TITLE
       <input
         onChange={(e) => {
           props.handleChange(e, "title");
@@ -20,6 +21,7 @@ export const PostWriteView = (props) => {
         name="title"
         value={`${props.form.title}`}
       ></input>
+      CONTENT
       <textarea
         value={`${props.form.body}`}
         name="body"

@@ -5,7 +5,7 @@ export default function handler(req, res) {
 
   let body = { ...req.body };
   body.timestamp = date;
-  knex("../posts.sqlite3")
+  knex("../db.sqlite3")
     .insert({ body: body })
     .into("posts")
     .then(() => {

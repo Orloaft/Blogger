@@ -3,7 +3,7 @@
 import knex from "knex";
 
 export default function handler(req, res) {
-  knex("../posts.sqlite3")
+  knex("../db.sqlite3")
     .select()
     .from("posts")
 

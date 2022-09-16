@@ -12,7 +12,7 @@ export const PostWriteController = () => {
         setForm({ title: "", body: "" });
       })
       .catch((err) => console.log(err));
-  };
+  }; // make sure to match the name of the input with the property name you want changed
   const handleChange = (e, name) => {
     let newForm = { ...form };
     newForm[name] = e.target.value;

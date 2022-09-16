@@ -4,10 +4,10 @@ export default function handler(req, res) {
   const query = req.query;
   knex("../db.sqlite3")
     .select()
-    .from("posts")
-    .where({ id: query.postId })
-    .then((post) => {
-      res.status(200).json(post);
+    .from("users")
+    .where({ token: query.token })
+    .then((user) => {
+      res.status(200).json(user[0]);
     })
     .catch((err) => console.log(err));
 }
