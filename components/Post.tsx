@@ -21,7 +21,7 @@ export const Post = (props) => {
     <Article>
       <Link href={`posts/${props.data.id}`}>{post.form.title}</Link>
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <span>{convertTimestamp(post.timestamp)}</span>
+        <span>{convertTimestamp(post.form.timestamp)}</span>
         <span>Author: {post.form.author}</span>{" "}
       </div>
     </Article>

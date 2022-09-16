@@ -1,5 +1,6 @@
 import { Bar } from "./SignInBar";
 import styled from "styled-components";
+import Link from "next/link";
 const UserBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -13,6 +14,11 @@ export const AccountBarView = (props) => {
         </svg>
         <span>{props.credentials.name}</span>
       </UserBox>
+      <Link href="/writePostPage">
+        <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+          <path d="M9 39h2.2l22.15-22.15-2.2-2.2L9 36.8Zm30.7-24.3-6.4-6.4 2.1-2.1q.85-.85 2.1-.85t2.1.85l2.2 2.2q.85.85.85 2.1t-.85 2.1Zm-2.1 2.1L12.4 42H6v-6.4l25.2-25.2Zm-5.35-1.05-1.1-1.1 2.2 2.2Z" />
+        </svg>
+      </Link>
       <button onClick={() => props.signOut()}>Sign out</button>
     </Bar>
   );

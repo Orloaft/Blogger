@@ -11,7 +11,7 @@ export default function handler(req, res) {
     .where(token === token)
     .then((user) => {
       body.form.author = user[0].name;
-      body.timestamp = date;
+      body.form.timestamp = date;
       knex("../db.sqlite3")
         .insert({ body: body })
         .into("posts")

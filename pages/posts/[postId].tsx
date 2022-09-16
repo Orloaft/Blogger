@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { AccountBarController } from "../../components/AccountBarController";
 import ContentView from "../../components/ContentView";
 import { NavBar } from "../../components/NavBar";
 import styles from "../../styles/Home.module.css";
@@ -20,6 +21,7 @@ const ContentController = () => {
     <div className={styles.container}>
       <NavBar />
       <ContentView data={content} />
+      <AccountBarController />
     </div>
   );
 };
