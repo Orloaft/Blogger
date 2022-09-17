@@ -31,13 +31,6 @@ const config: { [key: string]: Knex.Config } = {
     connection: {
       filename: "./db.sqlite3",
     },
-    pool: {
-      min: 2,
-      max: 10,
-    },
-    migrations: {
-      tableName: "knex_migrations",
-    },
   },
 };
 

@@ -3,11 +3,13 @@
 import knex from "knex";
 
 export default function handler(req, res) {
-  knex("./db.sqlite3")
-    .select()
-    .from("posts")
-
-    .then((posts) => {
-      res.status(200).json(posts.reverse());
-    });
+  // knex("./db.sqlite3")
+  //   .select()
+  //   .from("posts")
+  //   .then((posts) => {
+  //     res.status(200).json(posts.reverse());
+  //   });
+  res
+    .status(200)
+    .json([{ form: { body: "bonga", author: "conga", title: "yeees" } }]);
 }
