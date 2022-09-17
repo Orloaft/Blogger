@@ -5,12 +5,14 @@ interface PostFeedViewProps {
   posts: any[] | null;
 }
 const Feed = styled.section`
-  margin-top: 3.5rem;
+  padding-top: 3.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   @media (min-width: 48rem) {
+    padding-top: 0;
     padding-left: 3.5rem;
+    padding-right: 3.5rem;
   }
 `;
 export const PostFeedView = (props: PostFeedViewProps) => {

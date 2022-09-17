@@ -2,7 +2,7 @@ import knex from "knex";
 
 export default function handler(req, res) {
   const query = req.query;
-  knex("../db.sqlite3")
+  knex("./db.sqlite3")
     .select()
     .from("users")
     .where({ token: query.token })

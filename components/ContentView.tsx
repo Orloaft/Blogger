@@ -14,9 +14,17 @@ const ContentView = ({ data }) => {
     data && (
       <ContentWrap>
         <h2>{data.title}</h2>
-        <h3>
-          by:{data.author} date: {data.timestamp}
-        </h3>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <span>
+            {" "}
+            <b>by: </b>
+            {data.author}
+          </span>{" "}
+          <span>
+            <b>date: </b>
+            {data.timestamp}
+          </span>
+        </div>
         <p>{data.body}</p>
       </ContentWrap>
     )

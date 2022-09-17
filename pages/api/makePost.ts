@@ -11,13 +11,8 @@ export default function handler(req, res) {
     .where(token === token)
     .then((user) => {
       body.form.author = user[0].name;
-<<<<<<< Updated upstream
       body.form.timestamp = date;
-      knex("../db.sqlite3")
-=======
-      body.timestamp = date;
       knex("./db.sqlite3")
->>>>>>> Stashed changes
         .insert({ body: body })
         .into("posts")
         .then(() => {
