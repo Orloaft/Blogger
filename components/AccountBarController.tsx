@@ -12,7 +12,7 @@ export const AccountBarController = () => {
     let token = sessionStorage.getItem("token");
     if (token) {
       axios
-        .get(`http://localhost:3000/api/user/${token}`)
+        .get(`/api/user/${token}`)
         .then((res) => {
           setCredentials(res.data);
         })

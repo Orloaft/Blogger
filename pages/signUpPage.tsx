@@ -17,7 +17,7 @@ export default function SignUpPageController() {
     e.preventDefault();
     setMessage("");
     await axios
-      .post("http://localhost:3000/api/signUp", {
+      .post(`/api/signUp`, {
         email: e.target.email.value,
         name: e.target.name.value,
         password: e.target.password.value,

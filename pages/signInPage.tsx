@@ -16,7 +16,7 @@ export default function SignInPageController() {
     e.preventDefault();
     setMessage("");
     await axios
-      .post("http://localhost:3000/api/signIn", {
+      .post(`/api/signIn`, {
         email: e.target.email.value,
         password: e.target.password.value,
       })

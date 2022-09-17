@@ -8,7 +8,7 @@ export const PostWriteController = () => {
     e.preventDefault();
     let token = sessionStorage.getItem("token");
     axios
-      .post("http://localhost:3000/api/makePost", { form, token })
+      .post(`/api/makePost`, { form, token })
       .then(() => {
         setForm({ title: "", body: "" });
       })

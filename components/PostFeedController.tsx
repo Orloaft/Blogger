@@ -1,13 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { apiCall } from "../utils/apiUtils";
+
 import { PostFeedView } from "./PostFeedView";
 
 export const PostFeedController = () => {
   const [feed, setFeed] = useState(null);
   useEffect(() => {
+    console.log(process.env.API_CALL);
     axios
-      .get(apiCall)
+      .get(`/api/posts`)
       .then((result) => {
         setFeed(result.data);
       })

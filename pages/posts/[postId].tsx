@@ -11,7 +11,7 @@ const ContentController = () => {
   const { postId } = router.query;
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/api/${postId}`)
+      .get(`/api/${postId}`)
       .then((result) => {
         setContent(JSON.parse(result.data[0].body).form);
       })
