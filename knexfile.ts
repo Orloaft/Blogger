@@ -6,8 +6,8 @@ const config: { [key: string]: Knex.Config } = {
   development: {
     client: "sqlite3",
     connection: {
-      filename: "./dev.sqlite3"
-    }
+      filename: "./db.sqlite3",
+    },
   },
 
   staging: {
@@ -15,33 +15,30 @@ const config: { [key: string]: Knex.Config } = {
     connection: {
       database: "my_db",
       user: "username",
-      password: "password"
+      password: "password",
     },
     pool: {
       min: 2,
-      max: 10
+      max: 10,
     },
     migrations: {
-      tableName: "knex_migrations"
-    }
+      tableName: "knex_migrations",
+    },
   },
 
   production: {
-    client: "postgresql",
+    client: "sqlite3",
     connection: {
-      database: "my_db",
-      user: "username",
-      password: "password"
+      filename: "./db.sqlite3",
     },
     pool: {
       min: 2,
-      max: 10
+      max: 10,
     },
     migrations: {
-      tableName: "knex_migrations"
-    }
-  }
-
+      tableName: "knex_migrations",
+    },
+  },
 };
 
 module.exports = config;
