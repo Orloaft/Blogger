@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next -p $PORT",
-    "lint": "next lint"
+    "start": "NODE_ENV=production next -p $PORT",
+    "lint": "next lint",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "@types/jest": "^29.0.1",

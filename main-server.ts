@@ -3,7 +3,7 @@ import express from "express";
 import next from "next";
 
 async function startServer() {
-  const nextJsApp = next({ dev: true, conf: { reactStrictMode: true } });
+  const nextJsApp = next({ dev: false, conf: { reactStrictMode: true } });
   await nextJsApp.prepare();
   const app = express();
   app.all("*", nextJsApp.getRequestHandler() as any);
