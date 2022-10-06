@@ -16,7 +16,7 @@ const Article = styled.article`
 
 export const Post = (props) => {
   let post = JSON.parse(props.data.body);
-  console.log(post);
+
   return (
     <Article>
       <Link href={`posts/${props.data.id}`}>{post.form.title}</Link>

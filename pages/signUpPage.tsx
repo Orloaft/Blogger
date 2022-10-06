@@ -5,7 +5,7 @@ import axios from "axios";
 import { SignUpPageView } from "../components/SignUpPageView";
 
 export default function SignUpPageController() {
-  const [form, setForm] = useState({ email: "", password: "" });
+  const [form, setForm] = useState({ email: "", name: "", password: "" });
   const handleChange = (e, name) => {
     let newForm = { ...form };
     newForm[name] = e.target.value;
@@ -18,14 +18,14 @@ export default function SignUpPageController() {
     setMessage("");
     await axios
       .post(`/api/signUp`, {
-        email: e.target.email.value,
-        name: e.target.name.value,
-        password: e.target.password.value,
+        email: form.email,
+        name: form.name,
+        password: form.password,
       })
       .then((result) => {
         sessionStorage.setItem("token", result.data.token);
         setMessage(result.data.message);
-        setForm({ email: "", password: "" });
+        setForm({ email: "", name: "", password: "" });
         result.data.token && router.push("/");
       })
       .catch((err) => console.log(err));

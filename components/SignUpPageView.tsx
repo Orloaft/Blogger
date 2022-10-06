@@ -28,11 +28,10 @@ export const SignUpPageView = (props) => {
           type="password"
           name="password"
         ></input>
-        <button>Sign In</button>
+        <button>Sign Up</button>
       </Form>
       {props.message}
 
-      <button>Sign up</button>
       <Link href="/">Back</Link>
     </div>
   );
