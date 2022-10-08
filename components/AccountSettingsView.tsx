@@ -13,14 +13,14 @@ export const AccountSettingsView = (props) => {
       );
     case "changePassword":
       return (
-        <>
+        <form onSubmit={(e) => props.handlePasswordChange(e)}>
           <p>old password</p>
-          <input></input>
+          <input name="oldPw"></input>
           <p>new password</p>
-          <input></input>
-          <button>change password</button>
+          <input name="newPw"></input>
+          <button type="submit">change password</button>
           <button onClick={() => props.setOption("default")}>back</button>
-        </>
+        </form>
       );
     case "deleteAccount":
       return (

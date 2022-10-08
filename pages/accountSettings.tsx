@@ -5,6 +5,19 @@ import { AccountSettingsView } from "../components/AccountSettingsView";
 
 const AccountSettingsController = () => {
   const [option, setOption] = useState("default");
+  const handlePasswordChange = (e) => {
+    e.preventDefault();
+    console.log(e.target.newPw);
+    axios
+      .post(`/api/passwordReset`, {
+        token: sessionStorage.getItem("token"),
+        password: e.target.newPw.value,
+      })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
   const handleDelete = () => {
     axios
       .post(`/api/deleteAccount`, { token: sessionStorage.getItem("token") })
@@ -20,6 +33,7 @@ const AccountSettingsController = () => {
       option={option}
       setOption={setOption}
       handleDelete={handleDelete}
+      handlePasswordChange={handlePasswordChange}
     />
   );
 };
