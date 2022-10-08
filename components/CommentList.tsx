@@ -3,7 +3,7 @@ export const CommentList = (props) => {
     <>
       {props.comments.map((comment) => {
         return (
-          <div>
+          <div key={comment.id}>
             <span>{comment.author}</span>
             <span>{comment.body}</span>
           </div>
