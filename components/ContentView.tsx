@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { CommentController } from "./CommentController";
 const ContentWrap = styled.section`
   word-break: break-all;
   margin-top: 3.5rem;
@@ -26,6 +27,7 @@ const ContentView = ({ data }) => {
           </span>
         </div>
         <p>{data.body}</p>
+        <CommentController id={data.id} />
       </ContentWrap>
     )
   );

@@ -13,7 +13,7 @@ export default function handler(req, res) {
       body.form.author = user[0].name;
       body.form.timestamp = date;
       knex("./db.sqlite3")
-        .insert({ body: body })
+        .insert({ body: body.form })
         .into("posts")
         .then(() => {
           res.status(200).json("inserted");

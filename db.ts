@@ -1,12 +1,36 @@
-import sqlite3 from "sqlite3";
+import connect from "@databases/sqlite";
+import { sql } from "@databases/sqlite";
+async function createDb() {
+  const db = connect("./data.sqlite3");
 
-export const getDb = () => {
-  let db = new sqlite3.Database(`./sample1.sqlite3`, (err) => {
-    if (err) {
-      return console.error(err.message);
-    }
-    console.log("Connected to the in-memory SQlite database.");
-  });
-  db.run("CREATE TABLE posts(id number,body text)");
-  db.close();
-};
+  async function prepare() {
+    await db.query(sql`
+      CREATE TABLE IF NOT EXISTS users (
+        id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+        email VARCHAR NOT NULL,
+        username VARCHAR NOT NULL,
+        password VARCHAR,
+        token VARCHAR
+      );
+    `);
+    await db.query(sql`
+    CREATE TABLE IF NOT EXISTS pendingCredentials (
+      id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+      email VARCHAR NOT NULL,
+      username VARCHAR NOT NULL,
+      password VARCHAR,
+      token VARCHAR
+    );
+  `);
+    await db.query(sql`
+  CREATE TABLE IF NOT EXISTS posts (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    authorid VARCHAR,
+    data VARCHAR
+  );
+`);
+  }
+  const prepared = prepare();
+  console.log("database connected");
+}
+createDb();
