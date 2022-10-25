@@ -7,7 +7,7 @@ export default function Confirmations(props) {
     <button
       onClick={() => {
         axios
-          .post(`http://localhost:8080/users/confirmations/${code}`)
+          .post(`/api/users/confirmations/${code}`)
           .then((res) => {
             alert(res.data.message);
             router.push("/");

@@ -1,19 +1,21 @@
-import knex from "knex";
-
 import { v4 as uuid } from "uuid";
+const knex = require("knex")({
+  client: "sqlite3", // or 'better-sqlite3'
+  connection: {
+    filename: "./data.sqlite3",
+  },
+});
 export default function handler(req, res) {
-  knex("./db.sqlite3")
+  knex("users")
     .select()
-    .from("users")
     .where({ email: req.body.email })
     .then((user) => {
       if (user.length === 0) {
         res.json({ message: "user does not exist" });
       } else if (user[0].password === req.body.password) {
         let token = uuid();
-        knex("./db.sqlite3")
+        knex("users")
           .update({ token: token })
-          .from("users")
           .where({ name: user[0].name })
           .then(() => {
             res.json({ token: token, message: "signed in succesfully" });
