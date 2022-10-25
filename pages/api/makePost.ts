@@ -14,10 +14,10 @@ export default function handler(req, res) {
     .select()
     .where(token === token)
     .then((user) => {
-      body.form.author = user[0].name;
+      body.form.author = user[0].username;
       body.form.timestamp = date;
       knex("posts")
-        .insert({ body: body.form })
+        .insert({ data: body.form })
         .then(() => {
           res.status(200).json("inserted");
         })

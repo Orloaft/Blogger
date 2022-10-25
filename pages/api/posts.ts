@@ -12,5 +12,6 @@ export default function handler(req, res) {
     .select()
     .then((posts) => {
       res.status(200).json(posts.reverse());
-    });
+    })
+    .catch((err) => res.json({ message: "cant find posts" }));
 }

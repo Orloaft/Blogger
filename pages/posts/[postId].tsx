@@ -13,7 +13,7 @@ const ContentController = () => {
     axios
       .get(`/api/${postId}`)
       .then((result) => {
-        setContent(JSON.parse(result.data[0].body).form);
+        setContent(JSON.parse(result.data[0].data));
       })
       .catch((err) => console.log(err));
   }, []);

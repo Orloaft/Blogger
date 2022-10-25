@@ -18,8 +18,8 @@ export const SignUpPageView = (props) => {
         USERNAME
         <input
           onChange={(e) => props.onChange(e, "name")}
-          value={props.form.name}
-          name="name"
+          value={props.form.username}
+          name="username"
         ></input>
         PASSWORD
         <input

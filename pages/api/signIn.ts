@@ -16,7 +16,7 @@ export default function handler(req, res) {
         let token = uuid();
         knex("users")
           .update({ token: token })
-          .where({ name: user[0].name })
+          .where({ username: user[0].username })
           .then(() => {
             res.json({ token: token, message: "signed in succesfully" });
           });

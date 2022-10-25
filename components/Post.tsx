@@ -15,14 +15,14 @@ const Article = styled.article`
 `;
 
 export const Post = (props) => {
-  let post = JSON.parse(props.data.body);
+  let post = JSON.parse(props.data.data);
 
   return (
     <Article>
-      <Link href={`posts/${props.data.id}`}>{post.form.title}</Link>
+      <Link href={`posts/${props.data.id}`}>{post.title}</Link>
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <span>{convertTimestamp(post.form.timestamp)}</span>
-        <span>Author: {post.form.author}</span>{" "}
+        <span>{convertTimestamp(post.timestamp)}</span>
+        <span>Author: {post.author}</span>{" "}
       </div>
     </Article>
   );

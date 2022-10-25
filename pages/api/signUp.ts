@@ -19,7 +19,9 @@ function isValidEmail(email) {
   return /\S+@\S+\.\S+/.test(email);
 }
 export default function handler(req, res) {
+  console.log(req.body);
   if (isValidEmail(req.body.email)) {
+    console.log("valid email");
     let newUser = { ...req.body };
     knex(`users`)
       .select()
