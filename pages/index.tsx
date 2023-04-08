@@ -5,7 +5,7 @@ import { AccountBarController } from "../components/AccountBarController";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div className="container">
       <NavBar />
       <PostFeedController />
       <AccountBarController />
