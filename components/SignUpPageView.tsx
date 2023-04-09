@@ -4,6 +4,7 @@ import { Bar } from "./SignInBar";
 import { Nav } from "./NavBar";
 
 export const Button = styled.button`
+  cursor: pointer;
   font-size: 1.2rem;
   padding: 1rem 2rem;
   border: none;

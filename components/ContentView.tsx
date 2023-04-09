@@ -15,20 +15,20 @@ const ContentView = ({ data }) => {
   return (
     data && (
       <ContentWrap>
-        <h2>{data.title}</h2>
+        <h2>{data.data.title}</h2>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <span>
             {" "}
             <b>by: </b>
-            {data.author}
+            {data.data.author}
           </span>{" "}
           <span>
             <b>date: </b>
-            {data.timestamp}
+            {data.data.timestamp}
           </span>
         </div>
-        <p>{data.body}</p>
-        <CommentController id={data.id} />
+        <p>{data.data.body}</p>
+        <CommentController id={data.id} comments={data.data.comments} />
       </ContentWrap>
     )
   );

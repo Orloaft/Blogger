@@ -5,7 +5,7 @@ export const CommentList = (props) => {
         return (
           <div key={comment.id}>
             <span>{comment.author}</span>
-            <span>{comment.body}</span>
+            <span>{comment.text}</span>
           </div>
         );
       })}

@@ -33,21 +33,12 @@ bottom:0;
         right: 0;
         height: 2px;
         background-color: #d1a8ff;
-        animation: neon 1s infinite;
-        z-index: 4;
-      }
-  @keyframes neon {
-    from {
-      box-shadow: 0 0 10px #d1a8ff, 0 0 20px #d1a8ff, 0 0 30px #d1a8ff,
-        0 0 40px #d1a8ff, 0 0 70px #d1a8ff, 0 0 80px #d1a8ff, 0 0 100px #d1a8ff,
-        0 0 150px #d1a8ff;
-    }
-    to {
-      box-shadow: 0 0 5px #d1a8ff, 0 0 10px #d1a8ff, 0 0 15px #d1a8ff,
+        box-shadow: 0 0 5px #d1a8ff, 0 0 10px #d1a8ff, 0 0 15px #d1a8ff,
         0 0 20px #d1a8ff, 0 0 35px #d1a8ff, 0 0 40px #d1a8ff, 0 0 50px #d1a8ff,
         0 0 75px #d1a8ff;
-    }
-  }
+        z-index: 4;
+      }
+ 
 `;
 
 export const SignInBar = () => {

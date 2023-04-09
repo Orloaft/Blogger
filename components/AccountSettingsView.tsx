@@ -1,33 +1,35 @@
+import { Button, Form, Input } from "./SignUpPageView";
+
 export const AccountSettingsView = (props) => {
   switch (props.option) {
     case "default":
       return (
         <>
-          <button onClick={() => props.setOption("changePassword")}>
+          <Button onClick={() => props.setOption("changePassword")}>
             change password
-          </button>
-          <button onClick={() => props.setOption("deleteAccount")}>
+          </Button>
+          <Button onClick={() => props.setOption("deleteAccount")}>
             delete account
-          </button>
+          </Button>
         </>
       );
     case "changePassword":
       return (
-        <form onSubmit={(e) => props.handlePasswordChange(e)}>
+        <Form onSubmit={(e) => props.handlePasswordChange(e)}>
           <p>old password</p>
-          <input name="oldPw"></input>
+          <Input name="oldPw"></Input>
           <p>new password</p>
-          <input name="newPw"></input>
-          <button type="submit">change password</button>
-          <button onClick={() => props.setOption("default")}>back</button>
-        </form>
+          <Input name="newPw"></Input>
+          <Button type="submit">change password</Button>
+          <Button onClick={() => props.setOption("default")}>back</Button>
+        </Form>
       );
     case "deleteAccount":
       return (
         <>
           <p>Are you sure you want to delete this account?</p>
-          <button onClick={props.handleDelete}>yes</button>{" "}
-          <button onClick={() => props.setOption("default")}>no</button>
+          <Button onClick={props.handleDelete}>yes</Button>{" "}
+          <Button onClick={() => props.setOption("default")}>no</Button>
         </>
       );
   }

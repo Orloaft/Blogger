@@ -7,7 +7,6 @@ const knex = require("knex")({
 
 export default function handler(req, res) {
   let date = new Date();
-
   let body = { ...req.body };
   let token = body.token;
   knex("users")
@@ -17,7 +16,10 @@ export default function handler(req, res) {
       body.form.author = user[0].username;
       body.form.timestamp = date;
       knex("posts")
-        .insert({ data: body.form })
+        .insert({
+          data: { ...body.form, comments: [] },
+          authorid: body.authorId,
+        })
         .then(() => {
           res.status(200).json("inserted");
         })

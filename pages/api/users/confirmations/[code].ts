@@ -5,11 +5,12 @@ const knex = require("knex")({
   },
 });
 export default function handler(req, res) {
-  console.log(req.query);
+  console.log(req.query.code);
   knex("pendingCredentials")
     .select()
     .where({ token: req.query.code })
     .then((credentials) => {
+      console.log(credentials);
       knex("users")
         .insert({
           email: credentials[0].email,

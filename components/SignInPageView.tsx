@@ -45,7 +45,7 @@ export const SignInPageView = (props) => {
                 }}
                 type="submit"
               >
-                Sign Up
+                Sign In
               </button>
             </li>
           </ul>

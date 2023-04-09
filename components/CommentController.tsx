@@ -5,9 +5,10 @@ import { CommentList } from "./CommentList";
 import { Button, Form } from "./SignUpPageView";
 
 export const CommentController = (props) => {
-  const [comments, setComments] = useState([]);
   const userContext = useContext(UserContext);
   const submitHandle = (e) => {
+    e.preventDefault();
+
     axios
       .post(`/api/comment`, {
         id: props.id,
@@ -16,9 +17,7 @@ export const CommentController = (props) => {
           authorId: userContext.user.id,
         },
       })
-      .then((res) => {
-        setComments(res.data[0]);
-      })
+      .then((res) => {})
       .catch((err) => console.log(err));
   };
   return (
@@ -31,7 +30,7 @@ export const CommentController = (props) => {
         ></textarea>
         <Button>send comment</Button>
       </Form>
-      <CommentList comments={comments} />
+      <CommentList comments={props.comments} />
     </>
   );
 };

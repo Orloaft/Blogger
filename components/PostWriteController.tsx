@@ -1,14 +1,16 @@
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { PostWriteView } from "./PostWriteView";
+import { UserContext } from "../pages/_app";
 
 export const PostWriteController = () => {
+  const userContext = useContext(UserContext);
   const [form, setForm] = useState({ title: "", body: "" });
   const handleSubmit = (e) => {
     e.preventDefault();
     let token = sessionStorage.getItem("token");
     axios
-      .post(`/api/makePost`, { form, token })
+      .post(`/api/makePost`, { form, token, authorId: userContext.user.id })
       .then(() => {
         setForm({ title: "", body: "" });
       })

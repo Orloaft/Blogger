@@ -1,19 +1,24 @@
-import knex from "knex";
+const knex = require("knex")({
+  client: "sqlite3", // or 'better-sqlite3'
+  connection: {
+    filename: "./data.sqlite3",
+  },
+});
 
 export default function handler(req, res) {
-  knex("./db.sqlite3")
+  knex("posts")
     .select()
-    .from("posts")
     .where({ id: req.body.id })
     .then((posts) => {
-      let body = { ...posts[0].body };
-      body.comments.push(req.body.comment);
-      knex("./db.sqlite3")
-        .update({ body: body })
-        .from("posts")
+      let newbody = JSON.parse(posts[0].data);
+
+      newbody.comments.push(req.body.comment);
+
+      knex("posts")
+        .update({ data: JSON.stringify(newbody) })
         .where({ id: req.body.id })
         .then(() => {
-          res.status(201).json({ message: "comment posted" });
+          res.status(201).send({ comments: newbody.comments });
         });
     });
 }

@@ -4,6 +4,8 @@ export const Icon = styled.svg`
   fill: #d1a8ff;
 `;
 export const Nav = styled.nav`
+  position: absolute;
+  top: 0;
   color: #d1a8ff;
   width: 100%;
   background-color: #2e2e2e;
@@ -35,22 +37,11 @@ export const Nav = styled.nav`
         right: 0;
         height: 2px;
         background-color: #d1a8ff;
-        animation: neon 0.5s infinite;
+        box-shadow: 0 0 5px #d1a8ff, 0 0 10px #d1a8ff, 0 0 15px #d1a8ff,
+          0 0 20px #d1a8ff, 0 0 35px #d1a8ff, 0 0 40px #d1a8ff, 0 0 50px #d1a8ff,
+          0 0 75px #d1a8ff;
         z-index: 4;
       }
-    }
-  }
-
-  @keyframes neon {
-    from {
-      box-shadow: 0 0 10px #d1a8ff, 0 0 20px #d1a8ff, 0 0 30px #d1a8ff,
-        0 0 40px #d1a8ff, 0 0 70px #d1a8ff, 0 0 80px #d1a8ff, 0 0 100px #d1a8ff,
-        0 0 150px #d1a8ff;
-    }
-    to {
-      box-shadow: 0 0 5px #d1a8ff, 0 0 10px #d1a8ff, 0 0 15px #d1a8ff,
-        0 0 20px #d1a8ff, 0 0 35px #d1a8ff, 0 0 40px #d1a8ff, 0 0 50px #d1a8ff,
-        0 0 75px #d1a8ff;
     }
   }
 `;

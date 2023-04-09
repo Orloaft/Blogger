@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { AccountBarController } from "../../components/AccountBarController";
 import ContentView from "../../components/ContentView";
 import { NavBar } from "../../components/NavBar";
-import styles from "../../styles/Home.module.css";
+
 const ContentController = () => {
   const [content, setContent] = useState(null);
   const router = useRouter();
@@ -13,7 +13,10 @@ const ContentController = () => {
     axios
       .get(`/api/${postId}`)
       .then((result) => {
-        setContent(JSON.parse(result.data[0].data));
+        setContent({
+          id: result.data[0].id,
+          data: JSON.parse(result.data[0].data),
+        });
       })
       .catch((err) => console.log(err));
   }, []);

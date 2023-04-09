@@ -5,6 +5,7 @@ interface PostFeedViewProps {
   posts: any[] | null;
 }
 const Feed = styled.section`
+  width: 100%;
   padding-top: 3.5rem;
   display: flex;
   flex-direction: column;
@@ -20,7 +21,9 @@ export const PostFeedView = (props: PostFeedViewProps) => {
     <Feed>
       {props.posts &&
         props.posts.map((postData) => {
-          return <Post key={postData.id} data={postData} />;
+          return (
+            <Post key={postData.id} data={postData.data} id={postData.id} />
+          );
         })}
     </Feed>
   );

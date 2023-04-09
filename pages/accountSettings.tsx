@@ -2,6 +2,8 @@ import axios from "axios";
 import router from "next/router";
 import { useState } from "react";
 import { AccountSettingsView } from "../components/AccountSettingsView";
+import { Nav, NavBar } from "../components/NavBar";
+import { AccountBarController } from "../components/AccountBarController";
 
 const AccountSettingsController = () => {
   const [option, setOption] = useState("default");
@@ -29,12 +31,16 @@ const AccountSettingsController = () => {
       .catch((err) => console.log(err));
   };
   return (
-    <AccountSettingsView
-      option={option}
-      setOption={setOption}
-      handleDelete={handleDelete}
-      handlePasswordChange={handlePasswordChange}
-    />
+    <div className="container">
+      <NavBar />
+      <AccountSettingsView
+        option={option}
+        setOption={setOption}
+        handleDelete={handleDelete}
+        handlePasswordChange={handlePasswordChange}
+      />
+      <AccountBarController />
+    </div>
   );
 };
 export default AccountSettingsController;
