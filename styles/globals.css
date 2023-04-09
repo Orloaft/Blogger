@@ -22,6 +22,7 @@ a {
   }
 }
 .container {
+  overflow-y: scroll;
   display:flex;
   flex-direction: column;
   justify-content: center;
@@ -29,8 +30,7 @@ a {
   position: absolute;
   top: 0;
   left: 0;
-  overflow-y: scroll;
-
+  z-index: -1;
   height: 100vh;
   width: 100vw;
   background-image: linear-gradient(45deg, #09001a, #32046b, #5a189a, #9d4edd, #d1a8ff, #d1a8ff, #9d4edd, #5a189a, #32046b, #09001a);

@@ -15,14 +15,27 @@ export const CommentController = (props) => {
         comment: {
           text: e.target.comment.value,
           authorId: userContext.user.id,
+          authorName: userContext.user.username,
         },
       })
-      .then((res) => {})
+      .then((res) => {
+        e.target.comment.value = "";
+      })
       .catch((err) => console.log(err));
   };
   return (
-    <>
-      <Form onSubmit={(e) => submitHandle(e)}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        height: "20%",
+      }}
+    >
+      <Form
+        style={{ transform: "scale(.5)" }}
+        onSubmit={(e) => submitHandle(e)}
+      >
         <textarea
           style={{ maxHeight: "6rem" }}
           name="comment"
@@ -31,6 +44,6 @@ export const CommentController = (props) => {
         <Button>send comment</Button>
       </Form>
       <CommentList comments={props.comments} />
-    </>
+    </div>
   );
 };
