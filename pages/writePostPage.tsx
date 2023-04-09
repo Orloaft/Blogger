@@ -4,7 +4,7 @@ import { PostWriteController } from "../components/PostWriteController";
 import styles from "../styles/Home.module.css";
 export default function WritePostPage() {
   return (
-    <div className={styles.container}>
+    <div className="container">
       <NavBar />
       <PostWriteController />
       <AccountBarController />

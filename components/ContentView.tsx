@@ -2,10 +2,11 @@ import styled from "styled-components";
 import { CommentController } from "./CommentController";
 const ContentWrap = styled.section`
   word-break: break-all;
-  margin-top: 3.5rem;
+  margin: 3.5rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow-y: scroll;
   @media (min-width: 48rem) {
     padding-left: 3.5rem;
   }

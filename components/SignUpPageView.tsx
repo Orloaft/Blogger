@@ -1,5 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
+import { Bar } from "./SignInBar";
+import { Nav } from "./NavBar";
 
 export const Button = styled.button`
   font-size: 1.2rem;
@@ -36,12 +38,13 @@ export const Input = styled.input`
 `;
 
 export const Form = styled.form`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   ${Input} {
-    margin-bottom: 1rem;
+    margin: 1rem 0rem;
   }
 
   ${Button} {
@@ -52,29 +55,52 @@ export const SignUpPageView = (props) => {
   return (
     <div className="container">
       <Form onSubmit={props.submit}>
-        EMAIL
+        <Nav>
+          <ul>
+            <li>
+              {" "}
+              <button
+                style={{
+                  borderStyle: "none",
+                  background: "transparent",
+                  color: `#d1a8ff`,
+                }}
+                type="submit"
+              >
+                Sign Up
+              </button>
+            </li>
+          </ul>
+        </Nav>
         <Input
           onChange={(e) => props.onChange(e, "email")}
           value={props.form.email}
           name="email"
+          placeholder="email"
         ></Input>
-        USERNAME
+
         <Input
           onChange={(e) => props.onChange(e, "name")}
           value={props.form.username}
           name="username"
+          placeholder="username"
         ></Input>
-        PASSWORD
+
         <Input
           onChange={(e) => props.onChange(e, "password")}
           value={props.form.password}
           type="password"
           name="password"
+          placeholder="password"
         ></Input>
-        <Button type="submit">Sign Up</Button>
-        <Button>
-          <Link href="/">Back</Link>
-        </Button>
+        <Bar>
+          <ul>
+            {" "}
+            <li>
+              <Link href="/">Back</Link>
+            </li>
+          </ul>
+        </Bar>
       </Form>
       {props.message}
     </div>

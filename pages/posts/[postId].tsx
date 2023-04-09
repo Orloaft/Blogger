@@ -18,7 +18,7 @@ const ContentController = () => {
       .catch((err) => console.log(err));
   }, []);
   return (
-    <div className={styles.container}>
+    <div className="container">
       <NavBar />
       <ContentView data={content} />
       <AccountBarController />

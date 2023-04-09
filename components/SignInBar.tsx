@@ -22,6 +22,7 @@ bottom:0;
     padding: 0;
 
     & > li {
+      cursor:pointer;
       color:#d1a8ff;
       position: relative;
       &:hover::before {

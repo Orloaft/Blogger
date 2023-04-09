@@ -1,35 +1,57 @@
 import Link from "next/link";
-import styled from "styled-components";
 import { Button, Form, Input } from "./SignUpPageView";
+import { Bar } from "./SignInBar";
+import { Nav } from "./NavBar";
 
 export const SignInPageView = (props) => {
   return (
     <div className="container">
       <Form onSubmit={props.submit}>
-        EMAIL
+        <Nav>
+          <ul>
+            {" "}
+            <li>
+              {" "}
+              <Link href="/signUpPage">Sign up</Link>
+            </li>
+            <li>
+              <Link href="/">Back</Link>
+            </li>
+          </ul>
+        </Nav>
         <Input
           onChange={(e) => props.onChange(e, "email")}
           value={props.form.email}
           name="email"
+          placeholder="email"
         ></Input>
-        PASSWORD
+
         <Input
           onChange={(e) => props.onChange(e, "password")}
           value={props.form.password}
           type="password"
           name="password"
+          placeholder="password"
         ></Input>
-        <Button>Sign In</Button>
+        <Bar>
+          <ul>
+            <li>
+              {" "}
+              <button
+                style={{
+                  borderStyle: "none",
+                  background: "transparent",
+                  color: `#d1a8ff`,
+                }}
+                type="submit"
+              >
+                Sign Up
+              </button>
+            </li>
+          </ul>
+        </Bar>
       </Form>
       {props.message}
-      <p>Dont have an account? </p>
-      <Button>
-        {" "}
-        <Link href="/signUpPage">Sign up</Link>
-      </Button>
-      <Button>
-        <Link href="/">Back</Link>
-      </Button>
     </div>
   );
 };

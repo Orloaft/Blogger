@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { UserContext } from "../pages/_app";
 import { CommentList } from "./CommentList";
+import { Button, Form } from "./SignUpPageView";
 
 export const CommentController = (props) => {
   const [comments, setComments] = useState([]);
@@ -22,10 +23,14 @@ export const CommentController = (props) => {
   };
   return (
     <>
-      <form onSubmit={(e) => submitHandle(e)}>
-        <textarea name="comment"></textarea>
-        <button>send comment</button>
-      </form>
+      <Form onSubmit={(e) => submitHandle(e)}>
+        <textarea
+          style={{ maxHeight: "6rem" }}
+          name="comment"
+          placeholder="comment..."
+        ></textarea>
+        <Button>send comment</Button>
+      </Form>
       <CommentList comments={comments} />
     </>
   );

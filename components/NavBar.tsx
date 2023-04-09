@@ -1,16 +1,18 @@
 import Link from "next/link";
 import styled from "styled-components";
-const Icon = styled.svg`
+export const Icon = styled.svg`
   fill: #d1a8ff;
 `;
-const Nav = styled.nav`
+export const Nav = styled.nav`
+  color: #d1a8ff;
+  width: 100%;
   background-color: #2e2e2e;
   background-image: linear-gradient(to bottom, #2e2e2e, #454545);
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #000;
-  padding: 1rem;
+  padding: 0.5rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 
   & > ul {
@@ -23,6 +25,7 @@ const Nav = styled.nav`
     padding: 0;
 
     & > li {
+      cursor: pointer;
       position: relative;
       &:hover::before {
         content: "";
