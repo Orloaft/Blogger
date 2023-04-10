@@ -4,6 +4,8 @@ import { useState } from "react";
 import { AccountSettingsView } from "../components/AccountSettingsView";
 import { Nav, NavBar } from "../components/NavBar";
 import { AccountBarController } from "../components/AccountBarController";
+import { AccountInfo } from "../components/AccountInfo";
+import AvatarUploadForm from "../components/AvatarUploadForm";
 
 const AccountSettingsController = () => {
   const [option, setOption] = useState("default");
@@ -33,6 +35,12 @@ const AccountSettingsController = () => {
   return (
     <div className="container">
       <NavBar />
+      <AvatarUploadForm
+        onSubmit={function (imageUrl: string): void {
+          throw new Error("Function not implemented.");
+        }}
+      />
+      <AccountInfo />
       <AccountSettingsView
         option={option}
         setOption={setOption}
