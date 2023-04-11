@@ -11,7 +11,7 @@ export const AccountInfo = () => {
       {userContext.user.avatarurl && (
         <img
           style={{ height: "6rem", width: "6rem" }}
-          src={userContext.user.avatarurl}
+          src={process.env.NEXT_PUBLIC_CLIENT + userContext.user.avatarurl}
         />
       )}
     </>
