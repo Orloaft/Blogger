@@ -13,7 +13,7 @@ export const Avatar = ({ authorId }: { authorId: string }) => {
       {url && (
         <img
           style={{ height: "2rem", width: "2rem" }}
-          src={process.env.NEXT_PUBLIC_CLIENT + url}
+          src={process.env.NEXT_PUBLIC_CLIENT + `/` + url}
         />
       )}
     </>
