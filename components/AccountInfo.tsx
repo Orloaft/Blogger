@@ -8,7 +8,12 @@ export const AccountInfo = () => {
   return (
     <>
       <div>{userContext.user && userContext.user.username}</div>
-      {userContext.user.avatarurl && <img src={userContext.user.avatarurl} />}
+      {userContext.user.avatarurl && (
+        <img
+          style={{ height: "6rem", width: "6rem" }}
+          src={userContext.user.avatarurl}
+        />
+      )}
     </>
   );
 };

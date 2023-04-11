@@ -39,12 +39,14 @@ const AccountSettingsController = () => {
       {userContext.user && (
         <div className="container">
           <NavBar />
-          <AvatarUploadForm
-            onSubmit={function (imageUrl: string): void {
-              throw new Error("Function not implemented.");
-            }}
-          />
-          <AccountInfo />
+          <div style={{ display: "flex" }}>
+            <AvatarUploadForm
+              onSubmit={function (imageUrl: string): void {
+                throw new Error("Function not implemented.");
+              }}
+            />
+            <AccountInfo />
+          </div>
           <AccountSettingsView
             option={option}
             setOption={setOption}

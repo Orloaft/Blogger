@@ -6,13 +6,14 @@ const knex = require("knex")({
 });
 
 export default function handler(req, res) {
+  let date = new Date();
   knex("posts")
     .select()
     .where({ id: req.body.id })
     .then((posts) => {
       let newbody = JSON.parse(posts[0].data);
 
-      newbody.comments.push(req.body.comment);
+      newbody.comments.push({ ...req.body.comment, timestamp: date });
 
       knex("posts")
         .update({ data: JSON.stringify(newbody) })
