@@ -33,15 +33,13 @@ const AccountSettingsController = () => {
         router.push("/");
       })
       .catch((err) => console.log(err));
-    useEffect(() => {
-      sessionStorage.getItem("token") &&
-        axios
-          .get(`/api/users/${sessionStorage.getItem("token")}`)
-          .then((res) => {
-            userContext.setUser(res.data);
-          });
-    }, []);
   };
+  useEffect(() => {
+    sessionStorage.getItem("token") &&
+      axios.get(`/api/users/${sessionStorage.getItem("token")}`).then((res) => {
+        userContext.setUser(res.data);
+      });
+  }, []);
   return (
     <>
       {userContext.user && (
