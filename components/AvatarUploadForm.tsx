@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Form, Input } from "./SignUpPageView";
+import { Button, Form, Input } from "./SignUpPageView";
+import { toBase64 } from "../utils/apiUtils";
 
 interface Props {
   onSubmit: (imageUrl: string) => void;
@@ -9,7 +10,7 @@ interface Props {
 const AvatarUploadForm: React.FC<Props> = ({ onSubmit }) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [error, setError] = useState<string | null>(null);
-
+  const [url, setUrl] = useState<string>("");
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
       setSelectedFile(event.target.files[0]);
@@ -23,16 +24,16 @@ const AvatarUploadForm: React.FC<Props> = ({ onSubmit }) => {
       return;
     }
 
-    const formData = new FormData();
-    formData.append("avatar", selectedFile);
+    const base64: string = (await toBase64(selectedFile)) as string;
 
     try {
-      const response = await axios.post("/api/upload-avatar", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
+      const response = await axios.post("api/uploadavatar", {
+        base64: base64,
+        fileName: selectedFile.name,
+        token: sessionStorage.getItem("token"),
       });
-      onSubmit(response.data.imageUrl);
+      console.log(response);
+      setUrl(response.data.file);
     } catch (error) {
       setError("Failed to upload image");
     }
@@ -40,6 +41,7 @@ const AvatarUploadForm: React.FC<Props> = ({ onSubmit }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
+      {url}
       <label htmlFor="avatar">Select an image file for your avatar:</label>
       <Input
         type="file"
@@ -48,7 +50,7 @@ const AvatarUploadForm: React.FC<Props> = ({ onSubmit }) => {
         accept="image/*"
       />
       {error && <div className="error">{error}</div>}
-      <button type="submit">Upload</button>
+      <Button type="submit">Upload</Button>
     </Form>
   );
 };

@@ -2,7 +2,7 @@ import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import "../styles/globals.css";
 export const UserContext = createContext({
-  user: { id: null, username: null },
+  user: { id: null, username: null, avatarurl: null },
   setUser: null,
 });
 function MyApp({ Component, pageProps }) {

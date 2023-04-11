@@ -1,13 +1,15 @@
 import axios from "axios";
 import router from "next/router";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { AccountSettingsView } from "../components/AccountSettingsView";
 import { Nav, NavBar } from "../components/NavBar";
 import { AccountBarController } from "../components/AccountBarController";
 import { AccountInfo } from "../components/AccountInfo";
 import AvatarUploadForm from "../components/AvatarUploadForm";
+import { UserContext } from "./_app";
 
 const AccountSettingsController = () => {
+  const userContext = useContext(UserContext);
   const [option, setOption] = useState("default");
   const handlePasswordChange = (e) => {
     e.preventDefault();
@@ -33,22 +35,26 @@ const AccountSettingsController = () => {
       .catch((err) => console.log(err));
   };
   return (
-    <div className="container">
-      <NavBar />
-      <AvatarUploadForm
-        onSubmit={function (imageUrl: string): void {
-          throw new Error("Function not implemented.");
-        }}
-      />
-      <AccountInfo />
-      <AccountSettingsView
-        option={option}
-        setOption={setOption}
-        handleDelete={handleDelete}
-        handlePasswordChange={handlePasswordChange}
-      />
-      <AccountBarController />
-    </div>
+    <>
+      {userContext.user && (
+        <div className="container">
+          <NavBar />
+          <AvatarUploadForm
+            onSubmit={function (imageUrl: string): void {
+              throw new Error("Function not implemented.");
+            }}
+          />
+          <AccountInfo />
+          <AccountSettingsView
+            option={option}
+            setOption={setOption}
+            handleDelete={handleDelete}
+            handlePasswordChange={handlePasswordChange}
+          />
+          <AccountBarController />
+        </div>
+      )}
+    </>
   );
 };
 export default AccountSettingsController;

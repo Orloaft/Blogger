@@ -10,7 +10,8 @@ async function createDb() {
         email VARCHAR NOT NULL,
         username VARCHAR NOT NULL,
         password VARCHAR,
-        token VARCHAR
+        token VARCHAR,
+        avatarurl VARCHAR
       );
     `);
     await db.query(sql`
