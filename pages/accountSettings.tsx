@@ -1,6 +1,6 @@
 import axios from "axios";
 import router from "next/router";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AccountSettingsView } from "../components/AccountSettingsView";
 import { Nav, NavBar } from "../components/NavBar";
 import { AccountBarController } from "../components/AccountBarController";
@@ -33,6 +33,14 @@ const AccountSettingsController = () => {
         router.push("/");
       })
       .catch((err) => console.log(err));
+    useEffect(() => {
+      sessionStorage.getItem("token") &&
+        axios
+          .get(`/api/users/${sessionStorage.getItem("token")}`)
+          .then((res) => {
+            userContext.setUser(res.data);
+          });
+    }, []);
   };
   return (
     <>
