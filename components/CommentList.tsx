@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import { Avatar } from "./Avatar";
+
 import { uuid } from "uuidv4";
 import { convertTimestamp } from "../utils/convertTimeStamp";
+import { Avatar } from "./Avatar";
 
 const CommentBox = styled.ul`
   list-style: none;
@@ -33,10 +34,6 @@ export const CommentList = (props) => {
   return (
     <CommentBox>
       {props.comments.map((comment) => {
-        function convertTimeStamp(timestamp: any): import("react").ReactNode {
-          throw new Error("Function not implemented.");
-        }
-
         return (
           <li key={uuid()}>
             <Avatar authorId={comment.authorId} />
