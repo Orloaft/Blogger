@@ -46,7 +46,7 @@ export default function handler(req, res) {
                       to: req.body.email,
                       subject: `Message From ${process.env.USER_EMAIL}`,
                       text: `hello ${req.body.username}!
-                    Use this url to confirm your email ${process.env.CLIENT}/users/confirmations/${activationCode}.`,
+                    Use this url to confirm your email ${process.env.NEXT_PUBLIC_CLIENT}/users/confirmations/${activationCode}.`,
                     };
                     transporter.sendMail(mailData, function (err, info) {
                       if (err) console.log(err);
